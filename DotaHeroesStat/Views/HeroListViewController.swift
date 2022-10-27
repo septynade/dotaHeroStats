@@ -81,7 +81,6 @@ class HeroListViewController: UIViewController {
         setupViews()
         bind()
         heroSubject.send(.viewDidLoad)
-        PersistanceManager.shared.appHasLaunched()
     }
     
     //MARK: - Methods

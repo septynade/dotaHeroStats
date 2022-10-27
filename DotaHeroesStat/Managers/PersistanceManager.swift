@@ -51,11 +51,11 @@ final class PersistanceManager {
     }
     
     func isFirstLaunch() -> Bool {
-        let isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
+        let isFirstLaunch = !UserDefaults.standard.bool(forKey: "hasBeenLaunched")
+        if isFirstLaunch {
+            UserDefaults.standard.set(true, forKey: "hasBeenLaunched")
+            UserDefaults.standard.synchronize()
+        }
         return isFirstLaunch
-    }
-    
-    func appHasLaunched() {
-        UserDefaults.standard.set(false, forKey: "isFirstLaunch")
     }
 }
